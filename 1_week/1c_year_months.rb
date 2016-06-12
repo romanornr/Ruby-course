@@ -1,12 +1,16 @@
-seconds = [979000000, 2158493738, 246144023, 1270166272, 1025600095]
-
-def calculate_age_by_seconds(seconds)
-		seconds.map do |seconds|
-		age = seconds / (365.25 * 60 * 60 * 24)
-		age_round = age.floor
-		months = ((age - age_round) * 12).floor
-		"You are #{age_round} years and #{months} months old"
-	end
+def seconds_in_year
+  365.25 * 60 * 60 * 24
 end
 
-puts calculate_age_by_seconds(seconds)
+def year_and_months(seconds)
+  raw_years = seconds / seconds_in_year
+  years = raw_years.floor
+  months = ((raw_years - years) * 12).floor
+  [years, months]
+end
+
+ages = [979000000, 2158493738, 246144023, 1270166272, 1025600095]
+
+ages.each do |seconds|
+  puts "You are %i years and %i months old." % year_and_months(seconds)
+end
