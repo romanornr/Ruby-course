@@ -15,18 +15,18 @@ def conversion
   puts "2: From Celcius to Kelvin"
   puts "3: From Celsius to Delise"
   puts "Please type a number of the option available"
-  option = gets.chomp.to_i
+  option = gets.to_i
 
   puts "Please type the temprature:"
-  value = gets.chomp.to_f
+  value = gets.to_f
 
   case option
   when 1
-    puts "#{celcius_to_fahrenheit(value)}"
+    puts "The answer is #{celcius_to_fahrenheit(value)}"
   when 2
-    puts "#{celcius_to_Kelvin(value)}"
+    puts "The answer is #{celcius_to_Kelvin(value)}"
   when 3
-    puts "#{celcius_to_delise}"
+    puts "The answer is #{celcius_to_delise}"
   else
     puts "This option is not available"
   end
