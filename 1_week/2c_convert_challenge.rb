@@ -10,7 +10,7 @@ def celcius_to_delise(value)
   (temperature + 100) / 1.5000
 end
 
-def conversion
+
   puts "1: From Celcius to Fahrenheit"
   puts "2: From Celcius to Kelvin"
   puts "3: From Celsius to Delise"
@@ -30,6 +30,3 @@ def conversion
   else
     puts "This option is not available"
   end
-end
-
-conversion
