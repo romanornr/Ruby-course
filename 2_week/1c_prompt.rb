@@ -1,11 +1,11 @@
-module Prompt
-	def self.module(input)
+module Promptable
+	def self.prompt(input)
 		print input
-		string = gets
+	  gets.chomp
 	end
 end
 
-include Prompt
+include Promptable
 
-question = 'What operating system do you use: '
-puts "You use #{Prompt.module(question)}"
+answer = Promptable.prompt('What operating system do you use: ')
+puts "You use #{answer} as an operating system"
