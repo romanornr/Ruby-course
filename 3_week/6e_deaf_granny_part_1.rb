@@ -1,7 +1,7 @@
 def Deaf_Grandma()
   puts "Say something to grandma: "
   input = gets.chomp
-  unless input == "BYE"
+  unless input == "BYE" || input.empty?
     if input != input.upcase
       puts "HUH?! SPEAK UP, SONNY!"
     else
