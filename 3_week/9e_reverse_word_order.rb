@@ -1,10 +1,8 @@
 def reverse_word(text)
   text = text.split(" ")
   reversed_text = []
-  text_length = text.length
-  while text_length  > 0
-    text_length  -= 1
-    reversed_text << text[text_length ]
+  text.length.downto(0) do |index|
+    reversed_text << text[index]
   end
   reversed_text.join(' ')
 end
