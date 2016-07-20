@@ -80,7 +80,7 @@ RULES = { 3 => 'Fizz', 5 => 'Buzz', 7 => 'Dazz', 11 => 'Kezz' }
 # >> fb_use_rules(0)
 # => 'FizzBuzzDazzKezz'
 def fb_use_rules(number)
-  result = ''
+  result = ''git
   result << RULES.each_key.inject('') { |memo, k| memo << RULES[k] if number.divisible_by?(k) ; memo }
   result.empty? ? number : result
 end
