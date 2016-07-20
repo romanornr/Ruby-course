@@ -1,15 +1,42 @@
-def Deaf_Grandma()
-  puts "Say something to grandma: "
-  input = gets.chomp
-  unless input == "BYE"
-    if input != input.upcase
-       puts "HUH?! SPEAK UP, SONNY!"       
-    elsif !input.empty?
-       puts "NO, NOT SINCE #{rand(1930...1950)} !"
-    end
-    Deaf_Grandma()
+require_relative '../2_week/1c_prompt'
+# Modify your Deaf Grandma program (Week 3 / Exercise6): What if grandma doesn't
+# want you to leave? When you shout BYE, she could pretend not to hear you.
+# Change your previous program so that you have to shout BYE three times in a
+# row. Make sure to test your program: if you shout BYE three times, but not in a
+# row, you should still be talking to grandma. You must shout BYE three separate
+# times. If you shout BYEBYEBYE or BYE BYE BYE, grandma should pretend not to
+# hear you (and not count it as a BYE).
+
+# doctest: Granny comes into existance
+# >> DeafGrandma.new('Granny')
+class DeafGrandma
+  def initialize(name = 'Granny')
+    @name = name
   end
-  return
+
+  # doctest: Granny can respond to something said
+  # >> granny = DeafGrandma.new
+  # >> granny.respond_to? :response
+  # => true
+  # doctest: Granny can't hear if you don't yell
+  # >> granny.response("something said")
+  # => "HUH?! SPEAK UP, SONNY!"
+  # doctest: Can hear if shout
+  # >> granny.response("SOMETHING SHOUTED").include?('NO, NOT SINCE')
+  # => true
+  def response(statement)
+    @statement = statement
+    if @statement != @statement.upcase
+      'HUH?! SPEAK UP, SONNY!'
+    else
+      "NO, NOT SINCE #{rand(1930..1950)}"
+    end
+  end
 end
 
-Deaf_Grandma()
+if __FILE__ == $PROGRAM_NAME
+  include Promptable
+  granny = DeafGrandma.new
+  line = Promptable.prompt 'Say something to Grandma '
+  puts granny.response(line)
+end
