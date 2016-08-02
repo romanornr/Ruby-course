@@ -45,12 +45,12 @@ def algorithm_count_zero(begin_number, end_number)
     end_number > 100
     count = (9*(power)-1)*10**power+1
   end
-  answer = ((((count / 9) + power)).floor) + 1
+  answer = ((((count / 9)+power)).floor) + 1
 end
 
 
-end_number = 6000
-begin_number = 1
+end_number = 20000
+begin_number = 10000
 puts "Algorithm #{algorithm_count_zero(begin_number, end_number)}"
 puts "BruteForce: #{bruteforce_count_zero(begin_number, end_number)}"
 #(1..100).each {|end_number| puts bruteforce_count_zero(end_number)}
